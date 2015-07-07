@@ -106,7 +106,7 @@ class Project
                 'langfile' => 'description_page.lang',
                 ],
             'beta' => [
-                'template' => 'googleplay/beta/listing_may_2015.php',
+                'template' => 'googleplay/beta/listing_july_2015.php',
                 'langfile' => 'description_beta_page.lang',
                 ],
         ],
