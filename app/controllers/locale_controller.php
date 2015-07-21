@@ -25,8 +25,19 @@ if ($request['store'] == 'google') {
     switch ($request['channel']) {
         case 'beta':
             $locales = $project->getGoogleMozillaCommonLocales('beta');
+            $view  = 'play_locale_beta';
+
+            if ($request['output'] == 'html') {
+                $view  = 'play_locale_beta_escaped';
+            }
             break;
         case 'release':
+            $locales = $project->getGoogleMozillaCommonLocales('release');
+            $view  = 'play_locale_release';
+
+            if ($request['output'] == 'html') {
+                $view  = 'play_locale_release_escaped';
+            }
         default:
             $locales = $project->getGoogleMozillaCommonLocales('release');
             break;
@@ -52,19 +63,7 @@ if (! isset($request['output'])) {
     $request['output'] = 'show';
 }
 
-switch ($request['output']) {
-    case 'show':
-        $view  = 'locale';
-        $template = 'html.php';
-        break;
-    case 'html':
-        $view  = 'locale_escaped';
-        $template = 'html.php';
-        break;
-    default:
-        $view = 'locale';
-        break;
-}
+$template = 'html.php';
 
 include MODELS . 'locale_model.php';
 include VIEWS . $view . '_view.php';
