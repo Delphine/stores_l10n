@@ -8,31 +8,6 @@ require_once __DIR__ . '/../bootstrap.php';
 
 class Project extends atoum\test
 {
-    public function testIsRTL()
-    {
-        $obj = new _Project();
-        $this
-            ->boolean($obj->isRTL('ar'))
-                ->isTrue()
-            ;
-        $this
-            ->boolean($obj->isRTL('fa'))
-                ->isTrue()
-            ;
-        $this
-            ->boolean($obj->isRTL('fr'))
-                ->isFalse()
-            ;
-        $this
-            ->boolean($obj->isRTL('he'))
-                ->isTrue()
-            ;
-        $this
-            ->boolean($obj->isRTL('ur'))
-                ->isTrue()
-            ;
-    }
-
     public function testGetGoogleStoreLocales()
     {
         $obj = new _Project();
@@ -73,7 +48,7 @@ class Project extends atoum\test
                 ->contains('be')
                 ->notContains('af')
                 ->notContains('am')
-                ->hassize(37)
+                ->hassize(36)
             ;
     }
 
